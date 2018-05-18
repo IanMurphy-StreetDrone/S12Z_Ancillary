@@ -1,0 +1,43 @@
+<CodeGenerationInfo>
+  <ToolchainSettings>
+    <option>
+      <name>PE_G_4PEx_ToolChain_Compiler_SearchUserPaths</name>
+      <values lines_count="2">
+        <Line>"${ProjDirPath}/Sources"</Line>
+        <Line>"${ProjDirPath}/Generated_Code"</Line>
+      </values>
+    </option>
+  </ToolchainSettings>
+  <GeneratedFilesList>
+    <GeneratedByPE>
+      <File Name="Generated_Code/Cap2Pin.h" FileDate="2017-07-01, 23:35:29" FileAge="1498948529321" FileType="45637" CompNumb="14" />
+      <File Name="Sources/Events.c" FileDate="2017-07-01, 23:27:59" FileAge="1498948079289" FileType="131328" />
+      <File Name="Generated_Code/Cap2.h" FileDate="2017-07-01, 23:30:53" FileAge="1498948253381" FileType="45637" CompNumb="11" />
+      <File Name="Generated_Code/Cap2Pin.c" FileDate="2017-07-01, 23:35:29" FileAge="1498948529296" FileType="45637" CompNumb="14" />
+      <File Name="Generated_Code/Cap2.c" FileDate="2017-07-01, 23:30:53" FileAge="1498948253362" FileType="45637" CompNumb="11" />
+      <File Name="Sources/main.c" FileDate="2017-07-01, 17:19:06" FileAge="1498925946573" FileType="128" />
+      <File Name="Generated_Code/CAN1.h" FileDate="2017-07-01, 17:15:12" FileAge="1498925712563" FileType="45637" CompNumb="6" />
+      <File Name="Generated_Code/TI1.h" FileDate="2017-07-01, 23:40:17" FileAge="1498948817005" FileType="45637" CompNumb="15" />
+      <File Name="Generated_Code/CAN1.c" FileDate="2017-07-01, 17:38:15" FileAge="1498927095799" FileType="45637" CompNumb="6" />
+      <File Name="Generated_Code/PE_Const.h" FileDate="2017-07-01, 10:54:06" FileAge="1498902846121" FileType="45637" />
+      <File Name="Project_Settings/Linker_Files/ProcessorExpert.prm" FileDate="2017-07-01, 10:54:06" FileAge="1498902846497" FileType="8" CompNumb="12" />
+      <File Name="Generated_Code/TI1.c" FileDate="2017-07-01, 23:40:17" FileAge="1498948817021" FileType="45637" CompNumb="15" />
+      <File Name="Generated_Code/Cpu.h" FileDate="2017-07-01, 17:38:15" FileAge="1498927095879" FileType="45637" CompNumb="12" />
+      <File Name="Generated_Code/Cap1.h" FileDate="2017-07-01, 22:53:57" FileAge="1498946037254" FileType="45637" CompNumb="7" />
+      <File Name="Documentation/Test_S12Z_Settings.xml" FileDate="2017-07-01, 23:40:17" FileAge="1498948817172" FileType="3072" />
+      <File Name="Generated_Code/IO_Map.h" FileDate="2017-07-01, 10:54:06" FileAge="1498902846386" FileType="45637" />
+      <File Name="Generated_Code/PE_Types.h" FileDate="2017-07-01, 10:54:06" FileAge="1498902846164" FileType="45637" />
+      <File Name="Generated_Code/Cpu.c" FileDate="2017-07-01, 23:40:17" FileAge="1498948817040" FileType="45637" CompNumb="12" />
+      <File Name="Generated_Code/Cap1.c" FileDate="2017-07-01, 22:53:57" FileAge="1498946037276" FileType="45637" CompNumb="7" />
+      <File Name="Generated_Code/IO_Map.c" FileDate="2017-07-01, 10:54:06" FileAge="1498902846407" FileType="45637" />
+      <File Name="Documentation/Test_S12Z_SIGNALS.txt" FileDate="2017-07-01, 23:40:17" FileAge="1498948817092" FileType="3072" />
+      <File Name="Documentation/Test_S12Z.txt" FileDate="2017-07-01, 11:02:30" FileAge="1498903350762" FileType="3072" />
+      <File Name="Generated_Code/PE_Error.h" FileDate="2017-07-01, 10:54:06" FileAge="1498902846137" FileType="45637" />
+      <File Name="Generated_Code/Cap1Pin.h" FileDate="2017-07-01, 11:00:20" FileAge="1498903220093" FileType="45637" CompNumb="13" />
+      <File Name="Sources/Events.h" FileDate="2017-07-01, 17:45:15" FileAge="1498927515905" FileType="131328" />
+      <File Name="Generated_Code/Vectors.c" FileDate="2017-07-01, 23:40:17" FileAge="1498948817058" FileType="45637" CompNumb="12" />
+      <File Name="Generated_Code/Cap1Pin.c" FileDate="2017-07-01, 11:00:20" FileAge="1498903220103" FileType="45637" CompNumb="13" />
+    </GeneratedByPE>
+  </GeneratedFilesList>
+  <CodeGenReference>24</CodeGenReference>
+</CodeGenerationInfo>
