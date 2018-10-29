@@ -1,0 +1,61 @@
+<CodeGenerationInfo>
+  <ToolchainSettings>
+    <option>
+      <name>PE_G_4PEx_ToolChain_Compiler_SearchUserPaths</name>
+      <values lines_count="2">
+        <Line>"${ProjDirPath}/Sources"</Line>
+        <Line>"${ProjDirPath}/Generated_Code"</Line>
+      </values>
+    </option>
+  </ToolchainSettings>
+  <GeneratedFilesList>
+    <GeneratedByPE>
+      <File Name="Generated_Code/SW8.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079918" FileType="45637" CompNumb="57" />
+      <File Name="Generated_Code/IO_Map.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079847" FileType="45637" />
+      <File Name="Generated_Code/SW7.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079956" FileType="45637" CompNumb="56" />
+      <File Name="Generated_Code/CAN1.h" FileDate="2018-10-17, 15:21:20" FileAge="1539786080103" FileType="45637" CompNumb="6" />
+      <File Name="Generated_Code/IO_Map.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079809" FileType="45637" />
+      <File Name="Generated_Code/SW7.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079949" FileType="45637" CompNumb="56" />
+      <File Name="Generated_Code/CAN1.c" FileDate="2018-10-17, 15:21:20" FileAge="1539786080089" FileType="45637" CompNumb="6" />
+      <File Name="Generated_Code/SW6.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079963" FileType="45637" CompNumb="55" />
+      <File Name="Documentation/S12Z_CAN_DBW_SIGNALS.txt" FileDate="2018-10-17, 15:21:20" FileAge="1539786080151" FileType="3072" />
+      <File Name="Generated_Code/SW6.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079959" FileType="45637" CompNumb="55" />
+      <File Name="Generated_Code/PWM2.h" FileDate="2018-10-17, 15:21:20" FileAge="1539786080043" FileType="45637" CompNumb="20" />
+      <File Name="Generated_Code/PE_Const.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079853" FileType="45637" />
+      <File Name="Generated_Code/PWM2.c" FileDate="2018-10-17, 15:21:20" FileAge="1539786080038" FileType="45637" CompNumb="20" />
+      <File Name="Generated_Code/SW5.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079971" FileType="45637" CompNumb="54" />
+      <File Name="Generated_Code/PE_Types.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079872" FileType="45637" />
+      <File Name="Sources/Events.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079743" FileType="131328" />
+      <File Name="Sources/main.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079781" FileType="128" />
+      <File Name="Generated_Code/PE_Error.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079858" FileType="45637" />
+      <File Name="Generated_Code/SW5.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079967" FileType="45637" CompNumb="54" />
+      <File Name="Generated_Code/PWM1.h" FileDate="2018-10-17, 15:21:20" FileAge="1539786080066" FileType="45637" CompNumb="19" />
+      <File Name="Project_Settings/Linker_Files/ProcessorExpert.prm" FileDate="2018-10-03, 17:22:08" FileAge="1538583728805" FileType="8" CompNumb="12" />
+      <File Name="Sources/Events.c" FileDate="2018-10-17, 12:13:38" FileAge="1539774818360" FileType="131328" />
+      <File Name="Generated_Code/Cpu.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079774" FileType="45637" CompNumb="12" />
+      <File Name="Generated_Code/SW4.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079978" FileType="45637" CompNumb="53" />
+      <File Name="Generated_Code/PWM1.c" FileDate="2018-10-17, 15:21:20" FileAge="1539786080056" FileType="45637" CompNumb="19" />
+      <File Name="Generated_Code/Cpu.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079767" FileType="45637" CompNumb="12" />
+      <File Name="Generated_Code/SW4.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079974" FileType="45637" CompNumb="53" />
+      <File Name="Generated_Code/Vectors.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079752" FileType="45637" CompNumb="12" />
+      <File Name="Generated_Code/SW3.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079986" FileType="45637" CompNumb="52" />
+      <File Name="Generated_Code/DO1.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079886" FileType="45637" CompNumb="62" />
+      <File Name="Generated_Code/SW3.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079982" FileType="45637" CompNumb="52" />
+      <File Name="Generated_Code/DO1.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079879" FileType="45637" CompNumb="62" />
+      <File Name="Generated_Code/SW2.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079994" FileType="45637" CompNumb="45" />
+      <File Name="Generated_Code/SW2.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079990" FileType="45637" CompNumb="45" />
+      <File Name="Documentation/S12Z_CAN_DBW_Settings.xml" FileDate="2018-10-17, 15:21:20" FileAge="1539786080267" FileType="3072" />
+      <File Name="Generated_Code/TI1.h" FileDate="2018-10-17, 15:21:20" FileAge="1539786080081" FileType="45637" CompNumb="15" />
+      <File Name="Generated_Code/SW1.h" FileDate="2018-10-17, 15:21:20" FileAge="1539786080001" FileType="45637" CompNumb="44" />
+      <File Name="Generated_Code/TI1.c" FileDate="2018-10-17, 15:21:20" FileAge="1539786080072" FileType="45637" CompNumb="15" />
+      <File Name="Generated_Code/SW1.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079998" FileType="45637" CompNumb="44" />
+      <File Name="Generated_Code/ADC0.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079894" FileType="45637" CompNumb="61" />
+      <File Name="Documentation/S12Z_CAN_DBW.txt" FileDate="2018-10-17, 15:21:20" FileAge="1539786080353" FileType="3072" />
+      <File Name="Generated_Code/ADC0.c" FileDate="2018-10-17, 15:21:19" FileAge="1539786079890" FileType="45637" CompNumb="61" />
+      <File Name="Generated_Code/EN1.h" FileDate="2018-10-17, 15:21:20" FileAge="1539786080024" FileType="45637" CompNumb="38" />
+      <File Name="Generated_Code/SW8.h" FileDate="2018-10-17, 15:21:19" FileAge="1539786079930" FileType="45637" CompNumb="57" />
+      <File Name="Generated_Code/EN1.c" FileDate="2018-10-17, 15:21:20" FileAge="1539786080012" FileType="45637" CompNumb="38" />
+    </GeneratedByPE>
+  </GeneratedFilesList>
+  <CodeGenReference>9</CodeGenReference>
+</CodeGenerationInfo>

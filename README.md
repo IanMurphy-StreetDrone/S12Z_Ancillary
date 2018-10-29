@@ -1,3 +1,1 @@
-# S12Z
-
-Repository for projects using the S12Z micro from Freescale.
+# S12Z_CAN_DBW
