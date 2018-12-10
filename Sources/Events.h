@@ -36,19 +36,23 @@
 #include "IO_Map.h"
 #include "CAN1.h"
 #include "TI1.h"
-#include "PWM1.h"
-#include "PWM2.h"
 #include "EN1.h"
-#include "SW1.h"
-#include "SW2.h"
-#include "SW3.h"
-#include "SW4.h"
-#include "SW5.h"
-#include "SW6.h"
-#include "SW7.h"
-#include "SW8.h"
-#include "ADC0.h"
-#include "DO1.h"
+#include "IN1.h"
+#include "IN2.h"
+#include "IN3.h"
+#include "IN4.h"
+#include "IN5.h"
+#include "IN6.h"
+#include "IN7.h"
+#include "IN8.h"
+#include "OUT1.h"
+#include "OUT2.h"
+#include "OUT3.h"
+#include "OUT4.h"
+#include "OUT7.h"
+#include "OUT5.h"
+#include "OUT6.h"
+#include "OUT8.h"
 
 #pragma CODE_SEG DEFAULT
 
@@ -160,6 +164,25 @@ void Cap3_OnCapture(void);
 **         events are enabled - <EnableEvent>.This event is available
 **         only if a <interrupt service/event> is enabled.
 **     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void CAN1_OnFreeTxBuffer(word BufferMask);
+/*
+** ===================================================================
+**     Event       :  CAN1_OnFreeTxBuffer (module Events)
+**
+**     Component   :  CAN1 [FreescaleCAN]
+**     Description :
+**         This event is called after a successful transmission of a
+**         message. The event is available only if Interrupt
+**         service/event is enabled.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         BufferMask      - Transmit buffer mask. The
+**                           mask can be used to check what message
+**                           buffer caused the transmit interrupt.
 **     Returns     : Nothing
 ** ===================================================================
 */

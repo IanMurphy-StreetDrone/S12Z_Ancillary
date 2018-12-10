@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 26
+#Progress monitor hint: 30
 first : all
 -include ../makefile.init
 
@@ -75,14 +75,14 @@ all: warning-messages explicit-dependencies Test_S12Z.elf
 # Tool invocations
 Test_S12Z.elf: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_Files/ProcessorExpert.prm
 	@echo 'Building target: $@'
-	@echo 'Executing target #27 $@'
+	@echo 'Executing target #31 $@'
 	@echo 'Invoking: S12Z Linker'
 	"$(S12Z_ToolsDirEnv)/linker" -ArgFile"Test_S12Z.args" -O"Test_S12Z.elf"
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 Test_S12Z.elf.s19: $(BBL_SRCS) $(EXECUTABLES)
-	@echo 'Executing target #28 $@'
+	@echo 'Executing target #32 $@'
 	@echo 'Invoking: S12Z Burner'
 	"$(S12Z_ToolsDirEnv)/burner" -ViewHidden -WmsgFob"%f%e:%l:%k:%d:%m\n" -f="$<" -env"ABS_FILE=$(strip $(EXECUTABLES_OS_FORMAT))"
 	@echo 'Finished building: $@'

@@ -91,21 +91,48 @@ volatile struct CANIDR_struct *CANRX = (struct CANIDR_struct *)(REG_BASE + 0x000
 void CAN1_OnFullRxBuffer(void)
 {
   /* Write your code here ... */
+
+	dword Message_Rx;	
+	byte  FrameType_Rx;
+	byte FrameFormat_Rx;
+	byte Length_Rx;
+	byte Data[8];
 	
 	static VUINT16 timestamp;
 	static VUINT8 dlc,filter;
 	VUINT8 i;
 	
 	//id = CAN0RXIDR.IDR_STD.STD_ID;
+	CAN1_ReadFrame(&Message_Rx, &FrameType_Rx, &FrameFormat_Rx, &Length_Rx, Data);
+
+
+	switch(Message_Rx){
+	case 0x104: //Customer_Control_2
+		CANRX_timestamp[3] = CAN0RXTSR;
+		
+		
+		for (i=0;i<CAN0RXDLR_DLC;i++)
+			CANRX_data[3][i] = CAN0RXDSR_ARR[i];
+		
+		
+		break;
+	case 0x100: //StreetDrone_Control_1
+		
+		CANRX_timestamp[0] = CAN0RXTSR;
+		
+		
+		for (i=0;i<CAN0RXDLR_DLC;i++)
+			CANRX_data[0][i] = CAN0RXDSR_ARR[i];
+	
+		break;
+		
+	}
+	
+	
 	
 	filter = CAN0IDAC_IDHIT;
 	dlc = CAN0RXDLR_DLC;
-	timestamp = CAN0RXTSR;
 	
-	CANRX_timestamp[filter] = CAN0RXTSR;
-	
-	for (i=0;i<CAN0RXDLR_DLC;i++)
-		CANRX_data[filter][i] = CAN0RXDSR_ARR[i];
 		
 	CAN0RFLG |= CAN0RFLG_RXF_MASK; // clear Rx flag
 }
@@ -133,6 +160,28 @@ void TI1_OnInterrupt(void)
 	
 	if(0xFFFF == ms) ms_rollovers++;
 	ms++;
+}
+
+/*
+** ===================================================================
+**     Event       :  CAN1_OnFreeTxBuffer (module Events)
+**
+**     Component   :  CAN1 [FreescaleCAN]
+**     Description :
+**         This event is called after a successful transmission of a
+**         message. The event is available only if Interrupt
+**         service/event is enabled.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         BufferMask      - Transmit buffer mask. The
+**                           mask can be used to check what message
+**                           buffer caused the transmit interrupt.
+**     Returns     : Nothing
+** ===================================================================
+*/
+void CAN1_OnFreeTxBuffer(word BufferMask)
+{
+  /* Write your code here ... */
 }
 
 /* END Events */
