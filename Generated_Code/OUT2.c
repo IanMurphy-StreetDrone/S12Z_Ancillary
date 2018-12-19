@@ -6,7 +6,7 @@
 **     Component   : BitIO
 **     Version     : Component 02.086, Driver 03.00, CPU db: 3.00.000
 **     Compiler    : CodeWarrior HCS12Z C Compiler
-**     Date/Time   : 2018-11-19, 12:57, # CodeGen: 29
+**     Date/Time   : 2018-12-11, 17:10, # CodeGen: 38
 **     Abstract    :
 **         This component "BitIO" implements an one-bit input/output.
 **         It uses one bit/pin of a port.
@@ -18,10 +18,10 @@
 **             ----------------------------------------------------
 **                Number (on package)  |    Name
 **             ----------------------------------------------------
-**                       34            |  PT4_IOC0_4_MISO0_DBGEEV
+**                       31            |  PP4_KWP4_PWM1_1_ETRIG0
 **             ----------------------------------------------------
 **
-**         Port name                   : T
+**         Port name                   : P
 **
 **         Bit number (in port)        : 4
 **         Bit mask of the port        : 0x0010
@@ -30,8 +30,8 @@
 **         Initial output value        : 0
 **         Initial pull option         : down
 **
-**         Port data register          : PTT       [0x02C0]
-**         Port control register       : DDRT      [0x02C2]
+**         Port data register          : PTP       [0x02F0]
+**         Port control register       : DDRP      [0x02F2]
 **
 **         Optimization for            : speed
 **     Contents    :
@@ -138,9 +138,9 @@ bool OUT2_GetVal(void)
 void OUT2_PutVal(bool Val)
 {
   if (Val) {
-    setReg8Bits(PTT, 0x10U);           /* PTT4=0x01U */
+    setReg8Bits(PTP, 0x10U);           /* PTP4=0x01U */
   } else { /* !Val */
-    clrReg8Bits(PTT, 0x10U);           /* PTT4=0x00U */
+    clrReg8Bits(PTP, 0x10U);           /* PTP4=0x00U */
   } /* !Val */
 }
 

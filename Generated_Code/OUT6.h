@@ -6,7 +6,7 @@
 **     Component   : BitIO
 **     Version     : Component 02.086, Driver 03.00, CPU db: 3.00.000
 **     Compiler    : CodeWarrior HCS12Z C Compiler
-**     Date/Time   : 2018-11-19, 12:57, # CodeGen: 29
+**     Date/Time   : 2018-12-11, 17:10, # CodeGen: 38
 **     Abstract    :
 **         This component "BitIO" implements an one-bit input/output.
 **         It uses one bit/pin of a port.
@@ -18,13 +18,13 @@
 **             ----------------------------------------------------
 **                Number (on package)  |    Name
 **             ----------------------------------------------------
-**                       39            |  PT2_IOC1_2_PWM0_3
+**                       38            |  PT1_IOC1_1_SCL0_TXD1
 **             ----------------------------------------------------
 **
 **         Port name                   : T
 **
-**         Bit number (in port)        : 2
-**         Bit mask of the port        : 0x0004
+**         Bit number (in port)        : 1
+**         Bit mask of the port        : 0x0002
 **
 **         Initial direction           : Output (direction cannot be changed)
 **         Initial output value        : 0
@@ -117,7 +117,7 @@
 ** ===================================================================
 */
 #define OUT6_GetVal() ( \
-    (bool)((getReg8(PTT) & 0x04U))     /* Return port data */ \
+    (bool)((getReg8(PTT) & 0x02U))     /* Return port data */ \
   )
 
 /*
@@ -145,7 +145,7 @@ void OUT6_PutVal(bool Val);
 ** ===================================================================
 */
 #define OUT6_ClrVal() ( \
-    (void)clrReg8Bits(PTT, 0x04U)      /* PTT2=0x00U */ \
+    (void)clrReg8Bits(PTT, 0x02U)      /* PTT1=0x00U */ \
   )
 
 /*
@@ -158,7 +158,7 @@ void OUT6_PutVal(bool Val);
 ** ===================================================================
 */
 #define OUT6_SetVal() ( \
-    (void)setReg8Bits(PTT, 0x04U)      /* PTT2=0x01U */ \
+    (void)setReg8Bits(PTT, 0x02U)      /* PTT1=0x01U */ \
   )
 
 #pragma CODE_SEG DEFAULT

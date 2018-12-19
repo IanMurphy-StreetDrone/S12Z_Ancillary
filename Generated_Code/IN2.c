@@ -6,7 +6,7 @@
 **     Component   : BitIO
 **     Version     : Component 02.086, Driver 03.00, CPU db: 3.00.000
 **     Compiler    : CodeWarrior HCS12Z C Compiler
-**     Date/Time   : 2018-11-19, 12:57, # CodeGen: 29
+**     Date/Time   : 2018-12-11, 17:10, # CodeGen: 38
 **     Abstract    :
 **         This component "BitIO" implements an one-bit input/output.
 **         It uses one bit/pin of a port.
@@ -18,13 +18,13 @@
 **             ----------------------------------------------------
 **                Number (on package)  |    Name
 **             ----------------------------------------------------
-**                       18            |  PAD1_KWAD1_AN1_ACMP0_1_ETRIG0
+**                       11            |  PAD6_KWAD6_AN6_DACU
 **             ----------------------------------------------------
 **
 **         Port name                   : ADL
 **
-**         Bit number (in port)        : 1
-**         Bit mask of the port        : 0x0002
+**         Bit number (in port)        : 6
+**         Bit mask of the port        : 0x0040
 **
 **         Initial direction           : Input (direction cannot be changed)
 **         Initial output value        : 0

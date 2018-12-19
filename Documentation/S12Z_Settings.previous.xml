@@ -974,7 +974,7 @@ push-pull
     </Events>
   </Bean>
   <Bean name="PWM1" type="BitIO">
-    <Enabled v="Y" />
+    <Enabled v="N" />
     <Properties>
       <Component_name v="PWM1" />
       <Pin_for_I_O v="PP2_KWP2_PWM0_5" />
@@ -1006,7 +1006,7 @@ push-pull
     </Events>
   </Bean>
   <Bean name="PWM2" type="BitIO">
-    <Enabled v="Y" />
+    <Enabled v="N" />
     <Properties>
       <Component_name v="PWM2" />
       <Pin_for_I_O v="PP5_KWP5_PWM1_3" />

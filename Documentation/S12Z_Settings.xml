@@ -439,7 +439,7 @@ autoselected pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="IN1" />
-      <Pin_for_I_O v="PAD0_KWAD0_AN0_ACMP0_0" />
+      <Pin_for_I_O v="PAD5_KWAD5_AN5_ACMPO1" />
       <Pull_resistor v="pull down" />
       <Open_drain sel_value="The settings is irrelevant for input direction">
         
@@ -475,7 +475,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="IN2" />
-      <Pin_for_I_O v="PAD1_KWAD1_AN1_ACMP0_1_ETRIG0" />
+      <Pin_for_I_O v="PAD6_KWAD6_AN6_DACU" />
       <Pull_resistor v="pull down" />
       <Open_drain sel_value="The settings is irrelevant for input direction">
         
@@ -511,7 +511,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="IN3" />
-      <Pin_for_I_O v="PAD2_KWAD2_AN2_ACMPO0" />
+      <Pin_for_I_O v="PAD4_KWAD4_AN4_ACMP1_1" />
       <Pull_resistor v="pull down" />
       <Open_drain sel_value="The settings is irrelevant for input direction">
         
@@ -547,7 +547,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="IN4" />
-      <Pin_for_I_O v="PAD3_KWAD3_AN3_VRH_0_ACMP1_0" />
+      <Pin_for_I_O v="PAD7_KWAD7_AN7_AMPP" />
       <Pull_resistor v="pull down" />
       <Open_drain sel_value="The settings is irrelevant for input direction">
         
@@ -583,7 +583,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="IN5" />
-      <Pin_for_I_O v="PAD4_KWAD4_AN4_ACMP1_1" />
+      <Pin_for_I_O v="PAD3_KWAD3_AN3_VRH_0_ACMP1_0" />
       <Pull_resistor v="pull down" />
       <Open_drain sel_value="The settings is irrelevant for input direction">
         
@@ -619,7 +619,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="IN6" />
-      <Pin_for_I_O v="PAD5_KWAD5_AN5_ACMPO1" />
+      <Pin_for_I_O v="PAD0_KWAD0_AN0_ACMP0_0" />
       <Pull_resistor v="pull down" />
       <Open_drain sel_value="The settings is irrelevant for input direction">
         
@@ -655,7 +655,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="IN7" />
-      <Pin_for_I_O v="PAD6_KWAD6_AN6_DACU" />
+      <Pin_for_I_O v="PAD2_KWAD2_AN2_ACMPO0" />
       <Pull_resistor v="pull down" />
       <Open_drain sel_value="The settings is irrelevant for input direction">
         
@@ -691,7 +691,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="IN8" />
-      <Pin_for_I_O v="PAD7_KWAD7_AN7_AMPP" />
+      <Pin_for_I_O v="PAD1_KWAD1_AN1_ACMP0_1_ETRIG0" />
       <Pull_resistor v="pull down" />
       <Open_drain sel_value="The settings is irrelevant for input direction">
         
@@ -759,9 +759,10 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="OUT2" />
-      <Pin_for_I_O v="PT4_IOC0_4_MISO0_DBGEEV" />
+      <Pin_for_I_O v="PP4_KWP4_PWM1_1_ETRIG0" />
       <Pull_resistor v="pull down" />
       <Open_drain v="push-pull" />
+      <Reduced_drive_for_PP4 v="no" />
       <Direction v="Output" />
       <group name="Initialization">
         <Init__direction v="Output" />
@@ -790,7 +791,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="OUT3" />
-      <Pin_for_I_O v="PT0_IOC1_0_SDA0_RXD1" />
+      <Pin_for_I_O v="PT4_IOC0_4_MISO0_DBGEEV" />
       <Pull_resistor v="pull down" />
       <Open_drain v="push-pull" />
       <Direction v="Output" />
@@ -821,7 +822,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="OUT4" />
-      <Pin_for_I_O v="PT1_IOC1_1_SCL0_TXD1" />
+      <Pin_for_I_O v="PT7_IOC0_7_SS0_ECLK" />
       <Pull_resistor v="pull down" />
       <Open_drain v="push-pull" />
       <Direction v="Output" />
@@ -852,7 +853,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="OUT5" />
-      <Pin_for_I_O v="PT7_IOC0_7_SS0_ECLK" />
+      <Pin_for_I_O v="PT0_IOC1_0_SDA0_RXD1" />
       <Pull_resistor v="pull down" />
       <Open_drain v="push-pull" />
       <Direction v="Output" />
@@ -883,7 +884,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="OUT6" />
-      <Pin_for_I_O v="PT2_IOC1_2_PWM0_3" />
+      <Pin_for_I_O v="PT1_IOC1_1_SCL0_TXD1" />
       <Pull_resistor v="pull down" />
       <Open_drain v="push-pull" />
       <Direction v="Output" />
@@ -914,10 +915,9 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="OUT7" />
-      <Pin_for_I_O v="PP4_KWP4_PWM1_1_ETRIG0" />
+      <Pin_for_I_O v="PT2_IOC1_2_PWM0_3" />
       <Pull_resistor v="pull down" />
       <Open_drain v="push-pull" />
-      <Reduced_drive_for_PP4 v="no" />
       <Direction v="Output" />
       <group name="Initialization">
         <Init__direction v="Output" />
@@ -949,70 +949,6 @@ push-pull
       <Pin_for_I_O v="PT3_IOC1_3_PWM0_7" />
       <Pull_resistor v="pull down" />
       <Open_drain v="push-pull" />
-      <Direction v="Output" />
-      <group name="Initialization">
-        <Init__direction v="Output" />
-        <Init__value v="0" />
-      </group>
-      <Safe_mode v="yes" />
-      <Optimization_for v="speed" />
-    </Properties>
-    <Methods>
-      <GetDir v="don&amp;apos;t generate code" />
-      <SetDir v="don&amp;apos;t generate code" />
-      <SetInput v="don&amp;apos;t generate code" />
-      <SetOutput v="don&amp;apos;t generate code" />
-      <GetVal v="generate code" />
-      <PutVal v="generate code" />
-      <ClrVal v="generate code" />
-      <SetVal v="generate code" />
-      <NegVal v="don&amp;apos;t generate code" />
-      <GetRawVal v="don&amp;apos;t generate code" />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
-  <Bean name="PWM1" type="BitIO">
-    <Enabled v="N" />
-    <Properties>
-      <Component_name v="PWM1" />
-      <Pin_for_I_O v="PP2_KWP2_PWM0_5" />
-      <Pull_resistor v="pull down" />
-      <Open_drain v="push-pull" />
-      <Reduced_drive_for_PP2 v="no" />
-      <Direction v="Output" />
-      <group name="Initialization">
-        <Init__direction v="Output" />
-        <Init__value v="0" />
-      </group>
-      <Safe_mode v="yes" />
-      <Optimization_for v="speed" />
-    </Properties>
-    <Methods>
-      <GetDir v="don&amp;apos;t generate code" />
-      <SetDir v="don&amp;apos;t generate code" />
-      <SetInput v="don&amp;apos;t generate code" />
-      <SetOutput v="don&amp;apos;t generate code" />
-      <GetVal v="generate code" />
-      <PutVal v="generate code" />
-      <ClrVal v="generate code" />
-      <SetVal v="generate code" />
-      <NegVal v="don&amp;apos;t generate code" />
-      <GetRawVal v="don&amp;apos;t generate code" />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
-  <Bean name="PWM2" type="BitIO">
-    <Enabled v="N" />
-    <Properties>
-      <Component_name v="PWM2" />
-      <Pin_for_I_O v="PP5_KWP5_PWM1_3" />
-      <Pull_resistor v="pull down" />
-      <Open_drain v="push-pull" />
-      <Reduced_drive_for_PP5 v="no" />
       <Direction v="Output" />
       <group name="Initialization">
         <Init__direction v="Output" />
