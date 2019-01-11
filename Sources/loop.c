@@ -40,11 +40,19 @@ uint8_t err;
 uint8_t err1;
 bool Autonomous_Mode_B = FALSE;
 bool Indicator_High_B = FALSE;
+bool CAN_Error_B = FALSE;
+
 
 //This Cal controls how frequently the indicators pulse 
 int indicator_timer_cal = 400;
+int can_error_timeout_cal = 200;
 
 byte ancillary_control;
+
+//This is the timer for determining time since last CAN frame received.
+uint16_t can_rc_time_ms_104 = 0;
+uint16_t can_rc_time_ms_100 = 0;
+
 
 void loop()
 {
@@ -73,6 +81,7 @@ void loop()
 				Customer_Control_2.words[3] = CANRX_data[3][7];
 
 				CANRX_timestamp_prev[3] = CANRX_timestamp[3];
+				can_rc_time_ms_100 = ms;
 			}
 			
 			// unpack the CAN packet
@@ -88,20 +97,28 @@ void loop()
 				StreetDrone_Control_1.words[3] = CANRX_data[0][7];
 
 				CANRX_timestamp_prev[0] = CANRX_timestamp[0];
+				can_rc_time_ms_104 = ms;
 			}
 					
+			CAN_Error_B = FALSE;
+
+			if ((ms - can_rc_time_ms_100 >= can_error_timeout_cal) || (ms - can_rc_time_ms_104 >= can_error_timeout_cal) ){
+				CAN_Error_B = TRUE;
+			}else{
+				CAN_Error_B = FALSE;
+			}
 		/**********************	
 		Decoding CAN			
 		***********************/
 			
-	    OUT1_PutVal(FALSE);
-	   	OUT2_PutVal(FALSE);
-	   	OUT3_PutVal(FALSE);
-	   	OUT4_PutVal(FALSE);
-	   	OUT5_PutVal(FALSE);
-    	OUT6_PutVal(FALSE);
-    	OUT7_PutVal(FALSE);
-	   	OUT8_PutVal(FALSE);
+	    OUT1_PutVal(FALSE);//Output Obsolete
+	   	OUT2_PutVal(FALSE);//Main Beam
+	   	OUT3_PutVal(FALSE);//Horn
+	   	OUT4_PutVal(FALSE);//Side Lights
+	   	OUT5_PutVal(FALSE);//Left Indicator
+    	OUT6_PutVal(FALSE);//Right Indicator
+    	OUT7_PutVal(FALSE);//Dipped Beam
+	   	OUT8_PutVal(FALSE);//Output Obsolete
 
 	    //Autonomous_Mode_B
 	    if(((StreetDrone_Control_1.bytes[7] & 0b00000010)>>1)||((StreetDrone_Control_1.bytes[7] & 0b00100000)>>5))
@@ -113,67 +130,70 @@ void loop()
 	    
 	    
 	    //Main_Beam_B
-	    if(((Customer_Control_2.bytes[5] & 0b00000001)>>0)&&Autonomous_Mode_B)
+	    if(((Customer_Control_2.bytes[5] & 0b00000001)>>0)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-			OUT5_PutVal(TRUE);
+			OUT2_PutVal(TRUE);
+
 	    }
 	    
 	    //Dipped_Beam_B
-	    if(((Customer_Control_2.bytes[5] & 0b00000010)>>1)&&Autonomous_Mode_B)
+	    if(((Customer_Control_2.bytes[5] & 0b00000010)>>1)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-	    	OUT6_PutVal(TRUE);
+	    	OUT7_PutVal(TRUE);
+
 	    }
 
 	    //Side_Beam_B
-	    if(((Customer_Control_2.bytes[5] & 0b00000100)>>2)&&Autonomous_Mode_B)
+	    if(((Customer_Control_2.bytes[5] & 0b00000100)>>2)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
 	    	OUT4_PutVal(TRUE);
 	    }
 	    
 	    //Right Indicator_B only
-	    if(((Customer_Control_2.bytes[5] & 0b00001000) >>3)&&Autonomous_Mode_B)
+	    if(((Customer_Control_2.bytes[5] & 0b00001000) >>3)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
 			//Blink the Indicator
 			if(Indicator_High_B)
 			{	
-				OUT3_PutVal(TRUE);
+				OUT6_PutVal(TRUE);
 			}else{
-				OUT3_PutVal(FALSE);
+				OUT6_PutVal(FALSE);
 			}
+			
 	    }
 	    
 	    //Left Indicator_B only
-	    if(((Customer_Control_2.bytes[5] & 0b00010000)>>4)&&Autonomous_Mode_B)
+	    if(((Customer_Control_2.bytes[5] & 0b00010000)>>4)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {				
 			//Blink the Indicator
 			if(Indicator_High_B)
 			{	
-				OUT2_PutVal(TRUE);
+				OUT5_PutVal(TRUE);
 			}else{
-				OUT2_PutVal(FALSE);
+				OUT5_PutVal(FALSE);
 			}
 	    }
 	    
 	    
 	    //Hazard Lights
-	    if(((Customer_Control_2.bytes[5] & 0b01000000)>>6)&&Autonomous_Mode_B)
+	    if(((Customer_Control_2.bytes[5] & 0b01000000)>>6)&&Autonomous_Mode_B && !CAN_Error_B)
 		{	
 			//Blink the Indicators
 	   		if(Indicator_High_B)
 	   		{
-	   			OUT2_PutVal(TRUE);
-	   			OUT3_PutVal(TRUE);
+	   			OUT5_PutVal(TRUE);
+	   			OUT6_PutVal(TRUE);
     		}else{
 	    				
-    			OUT2_PutVal(FALSE);
-    			OUT3_PutVal(FALSE);
+    			OUT5_PutVal(FALSE);
+    			OUT6_PutVal(FALSE);
     			}
 		}
 	    	    
 	    //Horn_B
-	    if(((Customer_Control_2.bytes[5] & 0b10000000)>>7)&&Autonomous_Mode_B)
+	    if(((Customer_Control_2.bytes[5] & 0b10000000)>>7)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-	    	OUT7_PutVal(TRUE);
+	    	OUT3_PutVal(TRUE);
 
 	    }
 	    
@@ -186,14 +206,15 @@ void loop()
 		data_out.bytes[6] = 0;
 		data_out.bytes[7] = 0;
 		
-		if(IN5_GetVal()) { data_out.bytes[0] += 0b00000001; }
-		if(IN7_GetVal()) { data_out.bytes[0] += 0b00000010; }
-		if(IN3_GetVal()) { data_out.bytes[0] += 0b00000100; }
-		if(IN1_GetVal()) { data_out.bytes[0] += 0b00001000; }
-		if(IN2_GetVal()) { data_out.bytes[0] += 0b00010000; }
-		if(IN6_GetVal()) { data_out.bytes[0] += 0b00100000; }
-		if(IN4_GetVal()) { data_out.bytes[0] += 0b01000000; }
-		if(IN8_GetVal()) { data_out.bytes[0] += 0b10000000; }
+		//Mapped to appropiate pin on PCB I/O
+		if(IN1_GetVal()) { data_out.bytes[0] += 0b10000000; }//Horn
+		if(IN2_GetVal()) { data_out.bytes[0] += 0b00000001; }//Main Beam
+		if(IN3_GetVal()) { data_out.bytes[0] += 0b00000100; }//Side Lights
+		if(IN4_GetVal()) { data_out.bytes[0] += 0b01000000; }//Brake Lights
+		if(IN5_GetVal()) { data_out.bytes[0] += 0b00010000; }//left Indicator
+		if(IN6_GetVal()) { data_out.bytes[0] += 0b00100000; }//Reverse Lights
+		if(IN7_GetVal()) { data_out.bytes[0] += 0b00001000; }//Right Indicator
+		if(IN8_GetVal()) { data_out.bytes[0] += 0b00000010; }//Dipped
 
 
 						
