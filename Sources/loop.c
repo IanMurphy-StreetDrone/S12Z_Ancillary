@@ -112,12 +112,12 @@ void loop()
 		***********************/
 			
 	    OUT1_PutVal(FALSE);//Output Obsolete
-	   	OUT2_PutVal(FALSE);//Main Beam
-	   	OUT3_PutVal(FALSE);//Horn
-	   	OUT4_PutVal(FALSE);//Side Lights
-	   	OUT5_PutVal(FALSE);//Left Indicator
-    	OUT6_PutVal(FALSE);//Right Indicator
-    	OUT7_PutVal(FALSE);//Dipped Beam
+	   	OUT2_PutVal(FALSE);//Dipped Beam
+	   	OUT3_PutVal(FALSE);//Right Indicator
+	   	OUT4_PutVal(FALSE);//Left Indicator
+	   	OUT5_PutVal(FALSE);//Side Lights
+    	OUT6_PutVal(FALSE);//Horn
+    	OUT7_PutVal(FALSE);//Main Beam
 	   	OUT8_PutVal(FALSE);//Output Obsolete
 
 	    //Autonomous_Mode_B
@@ -132,21 +132,21 @@ void loop()
 	    //Main_Beam_B
 	    if(((Customer_Control_2.bytes[5] & 0b00000001)>>0)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-			OUT2_PutVal(TRUE);
+			OUT7_PutVal(TRUE);
 
 	    }
 	    
 	    //Dipped_Beam_B
 	    if(((Customer_Control_2.bytes[5] & 0b00000010)>>1)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-	    	OUT7_PutVal(TRUE);
+	    	OUT2_PutVal(TRUE);
 
 	    }
 
 	    //Side_Beam_B
 	    if(((Customer_Control_2.bytes[5] & 0b00000100)>>2)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-	    	OUT4_PutVal(TRUE);
+	    	OUT5_PutVal(TRUE);
 	    }
 	    
 	    //Right Indicator_B only
@@ -155,9 +155,9 @@ void loop()
 			//Blink the Indicator
 			if(Indicator_High_B)
 			{	
-				OUT6_PutVal(TRUE);
+				OUT3_PutVal(TRUE);
 			}else{
-				OUT6_PutVal(FALSE);
+				OUT3_PutVal(FALSE);
 			}
 			
 	    }
@@ -168,9 +168,9 @@ void loop()
 			//Blink the Indicator
 			if(Indicator_High_B)
 			{	
-				OUT5_PutVal(TRUE);
+				OUT4_PutVal(TRUE);
 			}else{
-				OUT5_PutVal(FALSE);
+				OUT4_PutVal(FALSE);
 			}
 	    }
 	    
@@ -181,19 +181,19 @@ void loop()
 			//Blink the Indicators
 	   		if(Indicator_High_B)
 	   		{
-	   			OUT5_PutVal(TRUE);
-	   			OUT6_PutVal(TRUE);
+	   			OUT4_PutVal(TRUE);
+	   			OUT3_PutVal(TRUE);
     		}else{
 	    				
-    			OUT5_PutVal(FALSE);
-    			OUT6_PutVal(FALSE);
+    			OUT4_PutVal(FALSE);
+    			OUT3_PutVal(FALSE);
     			}
 		}
 	    	    
 	    //Horn_B
 	    if(((Customer_Control_2.bytes[5] & 0b10000000)>>7)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-	    	OUT3_PutVal(TRUE);
+	    	OUT6_PutVal(TRUE);
 
 	    }
 	    
@@ -207,14 +207,14 @@ void loop()
 		data_out.bytes[7] = 0;
 		
 		//Mapped to appropiate pin on PCB I/O
-		if(IN1_GetVal()) { data_out.bytes[0] += 0b10000000; }//Horn
-		if(IN2_GetVal()) { data_out.bytes[0] += 0b00000001; }//Main Beam
-		if(IN3_GetVal()) { data_out.bytes[0] += 0b00000100; }//Side Lights
-		if(IN4_GetVal()) { data_out.bytes[0] += 0b01000000; }//Brake Lights
-		if(IN5_GetVal()) { data_out.bytes[0] += 0b00010000; }//left Indicator
-		if(IN6_GetVal()) { data_out.bytes[0] += 0b00100000; }//Reverse Lights
-		if(IN7_GetVal()) { data_out.bytes[0] += 0b00001000; }//Right Indicator
-		if(IN8_GetVal()) { data_out.bytes[0] += 0b00000010; }//Dipped
+		if(IN7_GetVal()) { data_out.bytes[0] += 0b10000000; }//Right Indicator
+		if(IN8_GetVal()) { data_out.bytes[0] += 0b00000001; }//Dipped Beam
+		if(IN5_GetVal()) { data_out.bytes[0] += 0b00000100; }//Left Indicator
+		if(IN6_GetVal()) { data_out.bytes[0] += 0b01000000; }//Reverese Lights
+		if(IN3_GetVal()) { data_out.bytes[0] += 0b00010000; }//Side
+		if(IN4_GetVal()) { data_out.bytes[0] += 0b00100000; }//Brake Light
+		if(IN1_GetVal()) { data_out.bytes[0] += 0b00001000; }//Horn
+		if(IN2_GetVal()) { data_out.bytes[0] += 0b00000010; }//Main
 
 
 						
