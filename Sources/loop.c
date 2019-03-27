@@ -17,6 +17,8 @@
 #include "IN6.h"
 #include "IN7.h"
 #include "IN8.h"
+#include "IN9.h"
+
 #include "lookup.h"
 
 
@@ -215,6 +217,8 @@ void loop()
 		if(IN6_GetVal()) { data_out.bytes[0] += 0b00100000; }//Brake Light
 		if(IN7_GetVal()) { data_out.bytes[0] += 0b00001000; }//Horn
 		if(IN8_GetVal()) { data_out.bytes[0] += 0b00000010; }//Main
+		if(IN9_GetVal()) { data_out.bytes[1] += 0b00001000; }//Main
+
 
 
 						

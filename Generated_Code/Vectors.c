@@ -5,7 +5,7 @@
 **     Processor   : MC9S12ZVCA192MLF
 **     Version     : Component 01.050, Driver 02.08, CPU db: 3.00.000
 **     Compiler    : CodeWarrior HCS12Z C Compiler
-**     Date/Time   : 2018-12-10, 17:13, # CodeGen: 35
+**     Date/Time   : 2019-03-20, 15:46, # CodeGen: 45
 **     Abstract    :
 **         This component "MC9S12ZVCA192_48" implements properties, methods,
 **         and events of the CPU.
@@ -74,6 +74,7 @@
 #include "OUT6.h"
 #include "OUT7.h"
 #include "OUT8.h"
+#include "IN9.h"
 
 /* ISR prototype */
 typedef void (*const tIsrFunc)(void);

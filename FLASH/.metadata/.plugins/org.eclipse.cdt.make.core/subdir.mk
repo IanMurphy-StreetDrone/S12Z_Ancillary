@@ -45,7 +45,7 @@ OBJS_OS_FORMAT += \
 # Each subdirectory must supply rules for building sources it contributes
 .metadata/.plugins/org.eclipse.cdt.make.core/specs_c.obj: ../.metadata/.plugins/org.eclipse.cdt.make.core/specs.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #31 $<'
+	@echo 'Executing target #30 $<'
 	@echo 'Invoking: S12Z Compiler'
 	"$(S12Z_ToolsDirEnv)/mwccs12lisa" -c @@".metadata/.plugins/org.eclipse.cdt.make.core/specs.args" -o ".metadata/.plugins/org.eclipse.cdt.make.core/specs_c.obj" "$<" -MD -gccdep
 	@echo 'Finished building: $<'
@@ -58,7 +58,7 @@ OBJS_OS_FORMAT += \
 
 .metadata/.plugins/org.eclipse.cdt.make.core/specs_cpp.obj: ../.metadata/.plugins/org.eclipse.cdt.make.core/specs.cpp
 	@echo 'Building file: $<'
-	@echo 'Executing target #32 $<'
+	@echo 'Executing target #31 $<'
 	@echo 'Invoking: S12Z Compiler'
 	"$(S12Z_ToolsDirEnv)/mwccs12lisa" -c @@".metadata/.plugins/org.eclipse.cdt.make.core/specs_1.args" -o ".metadata/.plugins/org.eclipse.cdt.make.core/specs_cpp.obj" "$<" -MD -gccdep
 	@echo 'Finished building: $<'

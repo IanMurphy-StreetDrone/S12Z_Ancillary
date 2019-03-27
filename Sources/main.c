@@ -48,6 +48,7 @@
 #include "OUT5.h"
 #include "OUT6.h"
 #include "OUT8.h"
+#include "IN9.h"
 /* Include shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"

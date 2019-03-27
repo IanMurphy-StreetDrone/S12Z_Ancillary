@@ -7,7 +7,7 @@
 **     Version     : Component 01.050, Driver 02.08, CPU db: 3.00.000
 **     Datasheet   : MC9S12ZVC-Family Reference Manual Preliminary Confidential Rev. 1.7 29-September-2016
 **     Compiler    : CodeWarrior HCS12Z C Compiler
-**     Date/Time   : 2018-12-10, 17:13, # CodeGen: 35
+**     Date/Time   : 2019-03-20, 15:46, # CodeGen: 45
 **     Abstract    :
 **         This component "MC9S12ZVCA192_48" implements properties, methods,
 **         and events of the CPU.
@@ -83,6 +83,7 @@
 #include "OUT6.h"
 #include "OUT7.h"
 #include "OUT8.h"
+#include "IN9.h"
 #include "Events.h"
 #include "Cpu.h"
 
@@ -315,6 +316,16 @@ void PE_low_level_init(void)
   setReg8Bits(PERT, 0x9FU);             
   /* DDRT: DDRT7=1,DDRT6=1,DDRT5=1,DDRT4=1,DDRT3=1,DDRT2=1,DDRT1=1,DDRT0=1 */
   setReg8(DDRT, 0xFFU);                 
+  /* DIENADH: DIENADH0=1 */
+  setReg8Bits(DIENADH, 0x01U);          
+  /* PIEADH: PIEADH0=0 */
+  clrReg8Bits(PIEADH, 0x01U);           
+  /* PPSADH: PPSADH0=1 */
+  setReg8Bits(PPSADH, 0x01U);           
+  /* PERADH: PERADH0=1 */
+  setReg8Bits(PERADH, 0x01U);           
+  /* DDRADH: DDRADH7=1,DDRADH6=1,DDRADH5=1,DDRADH4=1,DDRADH3=1,DDRADH2=1,DDRADH0=0 */
+  clrSetReg8Bits(DDRADH, 0x01U, 0xFCU); 
   /* CPMUINT: LOCKIE=0,OSCIE=0 */
   clrReg8Bits(CPMUINT, 0x12U);          
   /* CPMULVCTL: LVIE=0 */
@@ -323,8 +334,6 @@ void PE_low_level_init(void)
   clrReg8Bits(ECCIE, 0x01U);            
   /* ECCDCMD: ECCDRR=0 */
   clrReg8Bits(ECCDCMD, 0x80U);          
-  /* DDRADH: DDRADH7=1,DDRADH6=1,DDRADH5=1,DDRADH4=1,DDRADH3=1,DDRADH2=1 */
-  setReg8Bits(DDRADH, 0xFCU);           
   /* DDRJ: DDRJ1=1,DDRJ0=1 */
   setReg8Bits(DDRJ, 0x03U);             
   /* RDRP: RDRP6=0,RDRP5=0,RDRP4=0,RDRP2=0,RDRP0=0 */
@@ -354,6 +363,7 @@ void PE_low_level_init(void)
   /* ### BitIO "OUT6" init code ... */
   /* ### BitIO "OUT7" init code ... */
   /* ### BitIO "OUT8" init code ... */
+  /* ### BitIO "IN9" init code ... */
   /* Common peripheral initialization - ENABLE */
   /* CPMUAPICTL: APIFE=1 */
   setReg8Bits(CPMUAPICTL, 0x04U);       

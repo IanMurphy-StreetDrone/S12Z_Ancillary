@@ -93,11 +93,6 @@ OBJS_OS_FORMAT :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Sources \
-S12Z_CAN_DBW/FLASH/Sources \
-S12Z_CAN_DBW/FLASH/Project_Settings/Startup_Code \
-S12Z_CAN_DBW/FLASH/Generated_Code \
-S12Z_CAN_DBW/FLASH/.metadata/.plugins/org.eclipse.cdt.make.core \
-S12Z_CAN_DBW/.metadata/.plugins/org.eclipse.cdt.make.core \
 Project_Settings/Startup_Code \
 Generated_Code \
 .metadata/.plugins/org.eclipse.cdt.make.core \
