@@ -7,7 +7,7 @@
 **     Version     : Component 01.050, Driver 02.08, CPU db: 3.00.000
 **     Datasheet   : MC9S12ZVC-Family Reference Manual Preliminary Confidential Rev. 1.7 29-September-2016
 **     Compiler    : CodeWarrior HCS12Z C Compiler
-**     Date/Time   : 2018-11-19, 12:57, # CodeGen: 29
+**     Date/Time   : 2019-05-17, 15:31, # CodeGen: 0
 **     Abstract    :
 **         This component "MC9S12ZVCA192_48" implements properties, methods,
 **         and events of the CPU.

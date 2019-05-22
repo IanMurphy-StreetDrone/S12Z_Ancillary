@@ -6,7 +6,7 @@
 **     Component   : FreescaleCAN
 **     Version     : Component 02.366, Driver 01.31, CPU db: 3.00.000
 **     Compiler    : CodeWarrior HCS12Z C Compiler
-**     Date/Time   : 2019-03-20, 15:46, # CodeGen: 45
+**     Date/Time   : 2019-05-17, 15:31, # CodeGen: 0
 **     Abstract    :
 **         This component "FreescaleCAN" implements a CAN serial channel.
 **     Settings    :
