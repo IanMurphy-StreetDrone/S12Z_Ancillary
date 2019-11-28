@@ -135,23 +135,23 @@ void loop()
 	    //Main_Beam_B
 	    if(((Customer_Control_2.bytes[5] & 0b00000001)>>0)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-			OUT7_PutVal(TRUE);
-			OUT8_PutVal(FALSE);
+			OUT2_PutVal(TRUE);
+			OUT1_PutVal(FALSE);
 
 	    }
 	    
 	    //Dipped_Beam_B
 	    if(((Customer_Control_2.bytes[5] & 0b00000010)>>1)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-	    	OUT2_PutVal(TRUE);
-	    	OUT1_PutVal(FALSE);
+	    	OUT7_PutVal(TRUE);
+	    	OUT8_PutVal(FALSE);
 
 	    }
 
 	    //Side_Beam_B
 	    if(((Customer_Control_2.bytes[5] & 0b00000100)>>2)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-	    	OUT5_PutVal(TRUE);
+	    	OUT4_PutVal(TRUE);
 	    }
 	    
 	    //Right Indicator_B only
@@ -160,9 +160,9 @@ void loop()
 			//Blink the Indicator
 			if(Indicator_High_B)
 			{	
-				OUT3_PutVal(TRUE);
+				OUT6_PutVal(TRUE);
 			}else{
-				OUT3_PutVal(FALSE);
+				OUT6_PutVal(FALSE);
 			}
 			
 	    }
@@ -173,9 +173,9 @@ void loop()
 			//Blink the Indicator
 			if(Indicator_High_B)
 			{	
-				OUT4_PutVal(TRUE);
+				OUT5_PutVal(TRUE);
 			}else{
-				OUT4_PutVal(FALSE);
+				OUT5_PutVal(FALSE);
 			}
 	    }
 	    
@@ -186,19 +186,19 @@ void loop()
 			//Blink the Indicators
 	   		if(Indicator_High_B)
 	   		{
-	   			OUT4_PutVal(TRUE);
-	   			OUT3_PutVal(TRUE);
+	   			OUT6_PutVal(TRUE);
+	   			OUT5_PutVal(TRUE);
     		}else{
 	    				
-    			OUT4_PutVal(FALSE);
-    			OUT3_PutVal(FALSE);
+    			OUT6_PutVal(FALSE);
+    			OUT5_PutVal(FALSE);
     			}
 		}
 	    	    
 	    //Horn_B
 	    if(((Customer_Control_2.bytes[5] & 0b10000000)>>7)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-	    	OUT6_PutVal(TRUE);
+	    	OUT3_PutVal(TRUE);
 
 	    }
 	    
@@ -212,14 +212,14 @@ void loop()
 		data_out.bytes[7] = 0;
 		
 		//Mapped to appropiate pin on PCB I/O
-		if(IN7_GetVal()) { data_out.bytes[0] += 0b10000000; }//Horn
-		if(IN8_GetVal()) { data_out.bytes[0] += 0b00000001; }//Main Beam
-		if(IN5_GetVal()) { data_out.bytes[0] += 0b00000100; }//Side
-		if(IN6_GetVal()) { data_out.bytes[0] += 0b01000000; }//Brake Light
-		if(IN3_GetVal()) { data_out.bytes[0] += 0b00010000; }//Left Indicator
-		if(IN4_GetVal()) { data_out.bytes[0] += 0b00100000; }//Reverse Lights
-		if(IN1_GetVal()) { data_out.bytes[0] += 0b00001000; }//Right Indicator
-		if(IN2_GetVal()) { data_out.bytes[0] += 0b00000010; }//Dipped Beam
+		if(IN7_GetVal()) { data_out.bytes[0] += 0b00001000; }//Horn**Right Indicator
+		if(IN8_GetVal()) { data_out.bytes[0] += 0b00000010; }//Main Beam**Dipped Beam
+		if(IN5_GetVal()) { data_out.bytes[0] += 0b00010000; }//Side**Left Indicator
+		if(IN6_GetVal()) { data_out.bytes[0] += 0b00100000; }//Brake Light**Reverse Lights
+		if(IN3_GetVal()) { data_out.bytes[0] += 0b00000100; }//Left Indicator**Side
+		if(IN4_GetVal()) { data_out.bytes[0] += 0b01000000; }//Reverse Lights**Brake Light
+		if(IN1_GetVal()) { data_out.bytes[0] += 0b10000000; }//Right Indicator**Horn
+		if(IN2_GetVal()) { data_out.bytes[0] += 0b00000001; }//Dipped Beam**Main Beam
 		if(IN9_GetVal()) { data_out.bytes[1] += 0b00001000; }//Remote Acknowledge
 
 
