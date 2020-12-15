@@ -115,12 +115,12 @@ void loop()
 		***********************/
 			
 	    OUT1_PutVal(FALSE);//Output Obsolete
-	   	OUT2_PutVal(FALSE);//Dipped Beam
-	   	OUT3_PutVal(FALSE);//Right Indicator
-	   	OUT4_PutVal(FALSE);//Left Indicator
-	   	OUT5_PutVal(FALSE);//Side Lights
-    	OUT6_PutVal(FALSE);//Horn
-    	OUT7_PutVal(FALSE);//Main Beam
+	   	OUT2_PutVal(FALSE);//Main Beam
+	   	OUT3_PutVal(FALSE);//Horn
+	   	OUT4_PutVal(FALSE);//Side Lights
+	   	OUT5_PutVal(FALSE);//Left Indicator
+    	OUT6_PutVal(FALSE);//Right Indicator
+    	OUT7_PutVal(FALSE);//Dipped Beam
 	   	OUT8_PutVal(FALSE);//Output Obsolete
 
 	    //Autonomous_Mode_B
@@ -212,14 +212,14 @@ void loop()
 		data_out.bytes[7] = 0;
 		
 		//Mapped to appropiate pin on PCB I/O
-		if(IN7_GetVal()) { data_out.bytes[0] += 0b00001000; }//Horn**Right Indicator
-		if(IN8_GetVal()) { data_out.bytes[0] += 0b00000010; }//Main Beam**Dipped Beam
-		if(IN5_GetVal()) { data_out.bytes[0] += 0b00010000; }//Side**Left Indicator
-		if(IN6_GetVal()) { data_out.bytes[0] += 0b00100000; }//Brake Light**Reverse Lights
-		if(IN3_GetVal()) { data_out.bytes[0] += 0b00000100; }//Left Indicator**Side
-		if(IN4_GetVal()) { data_out.bytes[0] += 0b01000000; }//Reverse Lights**Brake Light
-		if(IN1_GetVal()) { data_out.bytes[0] += 0b10000000; }//Right Indicator**Horn
-		if(IN2_GetVal()) { data_out.bytes[0] += 0b00000001; }//Dipped Beam**Main Beam
+		if(IN1_GetVal()) { data_out.bytes[0] += 0b10000000; }//Horn
+		if(IN4_GetVal()) { data_out.bytes[0] += 0b01000000; }//Brake Light
+		if(IN6_GetVal()) { data_out.bytes[0] += 0b00100000; }//Reverse Lights
+		if(IN5_GetVal()) { data_out.bytes[0] += 0b00010000; }//Left Indicator
+		if(IN7_GetVal()) { data_out.bytes[0] += 0b00001000; }//Right Indicator
+		if(IN3_GetVal()) { data_out.bytes[0] += 0b00000100; }//Side
+		if(IN8_GetVal()) { data_out.bytes[0] += 0b00000010; }//Dipped Beam
+		if(IN2_GetVal()) { data_out.bytes[0] += 0b00000001; }//Main Beam
 		if(IN9_GetVal()) { data_out.bytes[1] += 0b00001000; }//Remote Acknowledge
 
 
