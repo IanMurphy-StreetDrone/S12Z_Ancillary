@@ -48,7 +48,7 @@ bool CAN_Error_B = FALSE;
 
 //This Cal controls how frequently the indicators pulse 
 int indicator_timer_cal = 400;
-int can_error_timeout_cal = 200;
+int can_error_timeout_cal = 400;
 
 byte ancillary_control;
 
@@ -67,7 +67,7 @@ void loop()
 		}
 	}
 	
-	if(0 == (ms % 5))
+	if(0 == (ms % 10))
 	{	
 
 
@@ -106,7 +106,7 @@ void loop()
 			CAN_Error_B = FALSE;
 
 			if ((ms - can_rc_time_ms_100 >= can_error_timeout_cal) || (ms - can_rc_time_ms_104 >= can_error_timeout_cal) ){
-				CAN_Error_B = TRUE;
+				CAN_Error_B = FALSE;
 			}else{
 				CAN_Error_B = FALSE;
 			}
@@ -115,43 +115,43 @@ void loop()
 		***********************/
 			
 	    OUT1_PutVal(FALSE);//Output Obsolete
-	   	OUT2_PutVal(FALSE);//Main Beam
-	   	OUT3_PutVal(FALSE);//Horn
-	   	OUT4_PutVal(FALSE);//Side Lights
-	   	OUT5_PutVal(FALSE);//Left Indicator
-    	OUT6_PutVal(FALSE);//Right Indicator
-    	OUT7_PutVal(FALSE);//Dipped Beam
+	   	OUT2_PutVal(FALSE);//Dipped Beam
+	   	OUT3_PutVal(FALSE);//Right Indicator
+	   	OUT4_PutVal(FALSE);//Left Indicator
+	   	OUT5_PutVal(FALSE);//Side Lights
+    	OUT6_PutVal(FALSE);//Horn
+    	OUT7_PutVal(FALSE);//Main Beam
 	   	OUT8_PutVal(FALSE);//Output Obsolete
 
 	    //Autonomous_Mode_B
-	    if(((StreetDrone_Control_1.bytes[7] & 0b00000010)>>1)||((StreetDrone_Control_1.bytes[7] & 0b00100000)>>5))
+	    if(((StreetDrone_Control_1.bytes[4] & 0b00000010)>>1)||((StreetDrone_Control_1.bytes[4] & 0b00100000)>>5))
 	    {	
 	    	Autonomous_Mode_B = TRUE;
 	    }else{
-	    	Autonomous_Mode_B = FALSE;
+	    	Autonomous_Mode_B = TRUE;
 	    }
 	    
 	    
 	    //Main_Beam_B
 	    if(((Customer_Control_2.bytes[5] & 0b00000001)>>0)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-			OUT2_PutVal(TRUE);
-			OUT1_PutVal(FALSE);
+			OUT7_PutVal(FALSE);
+			OUT8_PutVal(FALSE);
 
 	    }
 	    
 	    //Dipped_Beam_B
 	    if(((Customer_Control_2.bytes[5] & 0b00000010)>>1)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-	    	OUT7_PutVal(TRUE);
-	    	OUT8_PutVal(FALSE);
+	    	OUT2_PutVal(FALSE);
+	    	OUT1_PutVal(FALSE);
 
 	    }
 
 	    //Side_Beam_B
 	    if(((Customer_Control_2.bytes[5] & 0b00000100)>>2)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-	    	OUT4_PutVal(TRUE);
+	    	OUT5_PutVal(FALSE);
 	    }
 	    
 	    //Right Indicator_B only
@@ -160,9 +160,9 @@ void loop()
 			//Blink the Indicator
 			if(Indicator_High_B)
 			{	
-				OUT6_PutVal(TRUE);
+				OUT3_PutVal(TRUE);
 			}else{
-				OUT6_PutVal(FALSE);
+				OUT3_PutVal(FALSE);
 			}
 			
 	    }
@@ -173,9 +173,9 @@ void loop()
 			//Blink the Indicator
 			if(Indicator_High_B)
 			{	
-				OUT5_PutVal(TRUE);
+				OUT4_PutVal(TRUE);
 			}else{
-				OUT5_PutVal(FALSE);
+				OUT4_PutVal(FALSE);
 			}
 	    }
 	    
@@ -186,19 +186,19 @@ void loop()
 			//Blink the Indicators
 	   		if(Indicator_High_B)
 	   		{
-	   			OUT6_PutVal(TRUE);
-	   			OUT5_PutVal(TRUE);
+	   			OUT4_PutVal(TRUE);
+	   			OUT3_PutVal(TRUE);
     		}else{
 	    				
-    			OUT6_PutVal(FALSE);
-    			OUT5_PutVal(FALSE);
+    			OUT4_PutVal(FALSE);
+    			OUT3_PutVal(FALSE);
     			}
 		}
 	    	    
 	    //Horn_B
 	    if(((Customer_Control_2.bytes[5] & 0b10000000)>>7)&&Autonomous_Mode_B && !CAN_Error_B)
 	    {	
-	    	OUT3_PutVal(TRUE);
+	    	OUT6_PutVal(FALSE);
 
 	    }
 	    
@@ -212,14 +212,14 @@ void loop()
 		data_out.bytes[7] = 0;
 		
 		//Mapped to appropiate pin on PCB I/O
-		if(IN1_GetVal()) { data_out.bytes[0] += 0b10000000; }//Horn
-		if(IN4_GetVal()) { data_out.bytes[0] += 0b01000000; }//Brake Light
-		if(IN6_GetVal()) { data_out.bytes[0] += 0b00100000; }//Reverse Lights
-		if(IN5_GetVal()) { data_out.bytes[0] += 0b00010000; }//Left Indicator
-		if(IN7_GetVal()) { data_out.bytes[0] += 0b00001000; }//Right Indicator
-		if(IN3_GetVal()) { data_out.bytes[0] += 0b00000100; }//Side
-		if(IN8_GetVal()) { data_out.bytes[0] += 0b00000010; }//Dipped Beam
-		if(IN2_GetVal()) { data_out.bytes[0] += 0b00000001; }//Main Beam
+		if(IN7_GetVal()) { data_out.bytes[0] += 0b10000000; }//Horn
+		if(IN8_GetVal()) { data_out.bytes[0] += 0b00000001; }//Main Beam
+		if(IN5_GetVal()) { data_out.bytes[0] += 0b00000100; }//Side
+		if(IN6_GetVal()) { data_out.bytes[0] += 0b01000000; }//Brake Light
+		if(IN3_GetVal()) { data_out.bytes[0] += 0b00010000; }//Left Indicator
+		if(IN4_GetVal()) { data_out.bytes[0] += 0b00100000; }//Reverse Lights
+		if(IN1_GetVal()) { data_out.bytes[0] += 0b00001000; }//Right Indicator
+		if(IN2_GetVal()) { data_out.bytes[0] += 0b00000010; }//Dipped Beam
 		if(IN9_GetVal()) { data_out.bytes[1] += 0b00001000; }//Remote Acknowledge
 
 

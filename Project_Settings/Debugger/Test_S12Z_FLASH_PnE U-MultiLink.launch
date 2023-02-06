@@ -141,16 +141,16 @@
 <booleanAttribute key="org.eclipse.cdt.launch.ENABLE_REGISTER_BOOKKEEPING" value="false"/>
 <booleanAttribute key="org.eclipse.cdt.launch.ENABLE_RESTORE_WATCHPOINTS" value="true"/>
 <booleanAttribute key="org.eclipse.cdt.launch.ENABLE_VARIABLE_BOOKKEEPING" value="false"/>
-<stringAttribute key="org.eclipse.cdt.launch.FORMAT" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;contentList&gt;&lt;content id=&quot;err-loop-(format)&quot; val=&quot;1&quot;/&gt;&lt;content id=&quot;pin-Cap1_OnCapture-(cast)&quot; val=&quot;unsigned short&quot;/&gt;&lt;content id=&quot;[0]-[0]-CANRX_data--(cast)&quot; val=&quot;unsigned short&quot;/&gt;&lt;content id=&quot;steer_up--(format)&quot; val=&quot;1&quot;/&gt;&lt;content id=&quot;steer--(format)&quot; val=&quot;1&quot;/&gt;&lt;content id=&quot;steer--(cast)&quot; val=&quot;int&quot;/&gt;&lt;content id=&quot;i-CAN1_OnFullRxBuffer-(cast)&quot; val=&quot;unsigned short&quot;/&gt;&lt;content id=&quot;filter-CAN1_OnFullRxBuffer-(cast)&quot; val=&quot;unsigned short&quot;/&gt;&lt;/contentList&gt;"/>
+<stringAttribute key="org.eclipse.cdt.launch.FORMAT" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;contentList&gt;&lt;content id=&quot;filter-CAN1_OnFullRxBuffer-(cast)&quot; val=&quot;unsigned short&quot;/&gt;&lt;content id=&quot;i-CAN1_OnFullRxBuffer-(cast)&quot; val=&quot;unsigned short&quot;/&gt;&lt;content id=&quot;steer--(cast)&quot; val=&quot;int&quot;/&gt;&lt;content id=&quot;steer--(format)&quot; val=&quot;1&quot;/&gt;&lt;content id=&quot;steer_up--(format)&quot; val=&quot;1&quot;/&gt;&lt;content id=&quot;[0]-[0]-CANRX_data--(cast)&quot; val=&quot;unsigned short&quot;/&gt;&lt;content id=&quot;pin-Cap1_OnCapture-(cast)&quot; val=&quot;unsigned short&quot;/&gt;&lt;content id=&quot;err-loop-(format)&quot; val=&quot;1&quot;/&gt;&lt;/contentList&gt;"/>
 <stringAttribute key="org.eclipse.cdt.launch.GLOBAL_VARIABLES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;globalVariableList&gt;&#13;&#10;&lt;globalVariable name=&quot;CANRX_timestamp&quot; path=&quot;&quot;/&gt;&#13;&#10;&lt;/globalVariableList&gt;&#13;&#10;"/>
 <stringAttribute key="org.eclipse.cdt.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;memoryBlockExpressionList/&gt;&#13;&#10;"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="FLASH/Test_S12Z.elf"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="S12Z"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="S12Z_CAN_DBW"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="com.freescale.s12z.toolchain.release.523404955"/>
 <intAttribute key="org.eclipse.cdt.launch.SET_REGULAR_BREAKPOINT_TYPE_AS" value="0"/>
 <booleanAttribute key="org.eclipse.cdt.launch.USE_SET_REGULAR_BREAKPOINT_TYPE_AS" value="false"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/S12Z"/>
+<listEntry value="/S12Z_CAN_DBW"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="4"/>
