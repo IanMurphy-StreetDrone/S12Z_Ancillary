@@ -45,7 +45,7 @@ bool Autonomous_Mode_B = FALSE;
 bool Indicator_High_B = FALSE;
 bool CAN_Error_B = FALSE;
 
-
+byte test = 0;
 //This Cal controls how frequently the indicators pulse 
 int indicator_timer_cal = 400;
 int can_error_timeout_cal = 400;
@@ -94,8 +94,8 @@ void loop()
 				StreetDrone_Control_1.words[0] = CANRX_data[0][1];
 				StreetDrone_Control_1.words[1] = (uint16_t)CANRX_data[0][2]<<8;
 				StreetDrone_Control_1.words[1] = CANRX_data[0][3];
-				StreetDrone_Control_1.words[2] = (uint16_t)CANRX_data[0][4]<<8;
-				StreetDrone_Control_1.words[2] = CANRX_data[0][5];
+				StreetDrone_Control_1.bytes[4] = CANRX_data[0][4];
+				//StreetDrone_Control_1.words[2] = CANRX_data[0][5];
 				StreetDrone_Control_1.words[3] = (uint16_t)CANRX_data[0][6]<<8;
 				StreetDrone_Control_1.words[3] = CANRX_data[0][7];
 
@@ -122,13 +122,13 @@ void loop()
     	OUT6_PutVal(FALSE);//Horn
     	OUT7_PutVal(FALSE);//Main Beam
 	   	OUT8_PutVal(FALSE);//Output Obsolete
-
+test = StreetDrone_Control_1.bytes[4];
 	    //Autonomous_Mode_B
-	    if(((StreetDrone_Control_1.bytes[4] & 0b00000010)>>1)||((StreetDrone_Control_1.bytes[4] & 0b00100000)>>5))
+	    if(((StreetDrone_Control_1.bytes[4] & 0b00000010)>0)||((StreetDrone_Control_1.bytes[4] & 0b00100000)>0))
 	    {	
 	    	Autonomous_Mode_B = TRUE;
 	    }else{
-	    	Autonomous_Mode_B = TRUE;
+	    	Autonomous_Mode_B = FALSE;
 	    }
 	    
 	    
